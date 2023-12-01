@@ -29,18 +29,7 @@ function [number] = findLowestNumberString(string)
         end
     end
 
-    for i =1:length(string)
-    letter = string(i);
-    converted = str2double(letter);
-    real = isreal(converted);
-    if ~isnan(converted) && real == 1
-        firstNumber = converted;
-        firstNumberPosition = i;
-       break
-    end
-
-    firstNumber = [];
-    end
+    [firstNumber, firstNumberPosition] = getFirstNumber(string);
     
     if firstNumberPosition < placement
         number = firstNumber;

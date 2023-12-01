@@ -31,18 +31,7 @@ function [number] = findHighestNumberString(string)
         end
     end
 
-    for i =1:length(reverseString)
-    letter = reverseString(i);
-    converted = str2double(letter);
-    real = isreal(converted);
-    if ~isnan(converted) && real == 1
-        firstNumber = converted;
-        firstNumberPosition = i;
-       break
-    end
-
-    firstNumber = [];
-    end
+    [firstNumber, firstNumberPosition] = getFirstNumber(reverseString);
     
     if firstNumberPosition < placement
         number = firstNumber;
