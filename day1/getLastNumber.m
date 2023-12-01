@@ -1,21 +1,23 @@
-function [number] = findLowestNumberString(string)
+function [number] = getLastNumber(string)
+    reverseString = reverse(string);
     placement = 'a';
     number = [];
     
-    onePosition = strfind(string, 'one');
-    twoPosition = strfind(string, 'two');
-    threePosition = strfind(string, 'three');
-    fourPosition = strfind(string, 'four');
-    fivePosition = strfind(string, 'five');
-    sixPosition = strfind(string, 'six');
-    sevenPosition = strfind(string, 'seven');
-    eightPosition = strfind(string, 'eight');
-    ninePosition = strfind(string, 'nine');
+    onePosition = strfind(reverseString, 'eno');
+    twoPosition = strfind(reverseString, 'owt');
+    threePosition = strfind(reverseString, 'eerht');
+    fourPosition = strfind(reverseString, 'ruof');
+    fivePosition = strfind(reverseString, 'evif');
+    sixPosition = strfind(reverseString, 'xis');
+    sevenPosition = strfind(reverseString, 'neves');
+    eightPosition = strfind(reverseString, 'thgie');
+    ninePosition = strfind(reverseString, 'enin');
     array = {onePosition twoPosition threePosition fourPosition fivePosition sixPosition sevenPosition eightPosition ninePosition};
     
     for k=1:length(array)
         value = array(k);
         position = value{1};
+        
         if ~isnan(position)
             position = position(1);
             if isnan(placement)
@@ -29,7 +31,7 @@ function [number] = findLowestNumberString(string)
         end
     end
 
-    [firstNumber, firstNumberPosition] = getFirstNumber(string);
+    [firstNumber, firstNumberPosition] = findFirstNumber(reverseString);
     
     if firstNumberPosition < placement
         number = firstNumber;
